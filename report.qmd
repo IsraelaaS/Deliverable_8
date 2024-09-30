@@ -1,8 +1,8 @@
 ---
 title: Homework 2 - ER Diagrams
 author:
-    - name: Israel Alan Agoe-Sowah
-      email: agoesowahia@vcu.edu
+    - name: Israel Alan Agoe-Sowah, Kennedy Westry
+      email: agoesowahia@vcu.edu, westrykj@vcu.edu
 format:
     html:
         embed-resources: true
