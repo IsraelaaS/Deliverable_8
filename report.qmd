@@ -1,5 +1,5 @@
 ---
-title: Homework 2 - ER Diagrams
+title: Deliverable 8
 author:
     - name: Israel Alan Agoe-Sowah, Kennedy Westry
       email: agoesowahia@vcu.edu, westrykj@vcu.edu
@@ -13,4 +13,66 @@ format:
 
 
 ---
+
+```{dot}
+graph ER {
+    
+    fontname="Helvetica,Arial,sans-serif"
+    fontsize=30;  
+    label="Library Management System";
+    labelloc="t";  
+    labeljust="c";
+
+    bgcolor=transparent;   
+    
+    layout=neato  
+    scale=1.2    
+
+    node [fontname="Helvetica,Arial,sans-serif",fontsize=10]  
+
+
+    node [shape=box];
+    User; Movie; Genre; Ranking; Review;
+    node [shape=ellipse];
+    user_id; username; email; password; movie_id; title; release_yr; director; description; genre_id; genre_name; ranking_id; ranking; review_id; review;
+    
+    node [shape=diamond,style=filled,color=lightgrey]; 
+    
+
+    
+    edge [fontname="Helvetica,Arial,sans-serif",fontsize=10] 
+
+    user_id -- User;
+    username -- User;
+    email --User;
+    password--User;
+
+    movie_id -- Movie;
+    title--Movie;
+    release_yr --Movie;
+    director--Movie;
+    description --Movie;
+    genre--Movie;
+    
+
+    ID1 --Member;
+    membershipDate-- Member;
+    name --Member;
+
+    ID2 --Loan;
+    loanDate --Loan;
+    returnDate -- Loan;
+
+    Book -- "B-M" [label="n"];
+    "B-M" -- Member [label="n"];
+    
+    Book --"B-L" [label="1"];
+    Loan--"B-L" [label="1"];
+
+    Member--"M-L"[label="1"];
+    "M-L"--Loan [label="1"];
+
+}
+
+```
 
