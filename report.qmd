@@ -34,7 +34,7 @@ graph ER {
     node [shape=box];
     User; Movie; Genre; Ranking; Review;
     node [shape=ellipse];
-    user_id; username; email; password; movie_id; title; release_yr; director; description; genre_id; genre_name; ranking_id; ranking; review_id; review;
+    user_id; username; email; password; movie_id; title; release_yr; director; description; genre_id; genre_name; ranking_id; rank; review_id; review;
     
     node [shape=diamond,style=filled,color=lightgrey]; 
     
@@ -52,25 +52,31 @@ graph ER {
     release_yr --Movie;
     director--Movie;
     description --Movie;
-    genre--Movie;
+    genre_id--Movie; //need to show foreign key
+
+    genre_id--Genre;
+    genre_name--Genre;
+
+    ranking_id -- Ranking;
+    user_id--Ranking; //foreign key
+    movie_id--Ranking; //foreign key
+    rank--Ranking;
+
+    review_id--Review;
+    user_id--Review; //foreign key
+    movie_id--Review; //foreign Key
+    review --Review;
+
+
+
+    // Book -- "B-M" [label="n"];
+    // "B-M" -- Member [label="n"];
     
+    // Book --"B-L" [label="1"];
+    // Loan--"B-L" [label="1"];
 
-    ID1 --Member;
-    membershipDate-- Member;
-    name --Member;
-
-    ID2 --Loan;
-    loanDate --Loan;
-    returnDate -- Loan;
-
-    Book -- "B-M" [label="n"];
-    "B-M" -- Member [label="n"];
-    
-    Book --"B-L" [label="1"];
-    Loan--"B-L" [label="1"];
-
-    Member--"M-L"[label="1"];
-    "M-L"--Loan [label="1"];
+    // Member--"M-L"[label="1"];
+    // "M-L"--Loan [label="1"];
 
 }
 
